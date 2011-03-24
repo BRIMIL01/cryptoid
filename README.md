@@ -16,6 +16,8 @@ To decrypt an encrypted string:
 
 TODO
 -------------------
-Write tests (surprise!)
-Make a gem (overkill?)
 
+- Write tests (surprise!)
+- Make a gem (overkill?)
+
+NOTE: I found this in an application I wrote a while ago and I get the feeling I lifted the majority of the code from somewhere. If I find out where I will make sure to make the proper attributions.
