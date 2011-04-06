@@ -1,15 +1,21 @@
 require 'openssl'
 require 'base64'
 
+class CryptoidError < StandardError
+end
+
 class Cryptoid
   def initialize(data_path)
+    unless File.directory?(data_path)
+      raise CryptoidError, "Data path does not exist"
+    end
     @data_path = data_path
     @private   = get_key 'id_rsa'
     @public    = get_key 'id_rsa.pub'
   end
 
   def encrypt_string(message)
-    Base64::encode64(@public.public_encrypt(message)).rstrip
+    Base64::encode64(@public.public_encrypt(message))
   end
 
   def decrypt_string(message)
